@@ -1,21 +1,21 @@
 import Image from "next/image";
 
-async function getHomepageData() {
-  console.log(process.env.STRAPI_API_URL);
-  const res = await fetch(`${process.env.STRAPI_API_URL}/api/homepage?populate=*`, {
-    cache: "no-store", // Disable caching for fresh data, or use "force-cache" for ISR
-  });
-  if (!res.ok) {
-    throw new Error("Failed to fetch homepage data");
-  }
+// async function getHomepageData() {
+//   console.log(process.env.STRAPI_API_URL);
+//   const res = await fetch(`${process.env.STRAPI_API_URL}/api/homepage?populate=*`, {
+//     cache: "no-store", // Disable caching for fresh data, or use "force-cache" for ISR
+//   });
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch homepage data");
+//   }
   
-  const { data } = await res.json();
-  console.log(data);
-  return data;
-}
+//   const { data } = await res.json();
+//   console.log(data);
+//   return data;
+// }
 
 export default async function Home() {
-  const homepage = await getHomepageData();
+  // const homepage = await getHomepageData();
   return (
     <div className="w-full bg-cotton overflow-hidden">
       <main className="w-full h-full relative flex flex-col min-h-[100vh] justify-start items-center">
