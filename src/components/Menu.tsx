@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-
+import Image from "next/image";
 interface MenuProps {
   onClose: () => void; // Type for the onClose function
   isOpen: boolean; // Type for the isOpen prop
@@ -80,7 +80,7 @@ const Menu: React.FC<MenuProps> = ({ onClose, isOpen }) => {
               {/* SVG icon */}
             </a>
             <div className="w-full text-white relative">
-              <img
+              <Image
                 alt="img-0"
                 loading="lazy"
                 width="604"
@@ -229,7 +229,7 @@ const Menu: React.FC<MenuProps> = ({ onClose, isOpen }) => {
           {/* Right Side Image */}
           <div className="relative h-full text-white w-full min-w-[604px] max-w-[604px]">
             <div className="h-full relative w-full transition-all duration-300 opacity-100">
-              <img
+              <Image
                 alt="img-0"
                 loading="lazy"
                 width="604"
@@ -238,7 +238,6 @@ const Menu: React.FC<MenuProps> = ({ onClose, isOpen }) => {
                 data-nimg="1"
                 className="h-full w-full object-cover"
                 style={{ color: "transparent" }}
-                srcSet="https://dsh6y5eym1jrl.cloudfront.net/_next/image?url=https%3A%2F%2Fd166chel5lrjm5.cloudfront.net%2Fimages%2Fdetailed%2Fburgermenu%2F20250305_burgermenu_gen_11.jpg&amp;w=3840&amp;q=100 1x"
                 src="https://dsh6y5eym1jrl.cloudfront.net/_next/image?url=https%3A%2F%2Fd166chel5lrjm5.cloudfront.net%2Fimages%2Fdetailed%2Fburgermenu%2F20250305_burgermenu_gen_11.jpg&amp;w=3840&amp;q=100"
               />
               <a

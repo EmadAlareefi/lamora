@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Image from "next/image";
 const ProductItem: React.FC = () => {
   return (
     <div className="flex flex-col gap-10 px-5 pb-5 border-b-[1px] border-wine border-solid transition-opacity duration-300 ease-in-out opacity-100">
@@ -7,13 +7,12 @@ const ProductItem: React.FC = () => {
         <div className="flex gap-5">
           <div className="bg-pinkPale h-[165px] shoppingbag-webkit align-top">
             <a className="w-28 max-w-28 block" href="https://app.houseofcb.com/samaria-black-corset-midi-dress">
-              <img
+              <Image
                 alt="Image"
                 loading="lazy"
                 width={150}
                 height={220}
                 decoding="async"
-                srcSet="https://dsh6y5eym1jrl.cloudfront.net/_next/image?url=https%3A%2F%2Fd166chel5lrjm5.cloudfront.net%2Fimages%2Fdetailed%2F111%2Fsamaria-9109e-1.jpg&amp;w=256&amp;q=100 1x, https://dsh6y5eym1jrl.cloudfront.net/_next/image?url=https%3A%2F%2Fd166chel5lrjm5.cloudfront.net%2Fimages%2Fdetailed%2F111%2Fsamaria-9109e-1.jpg&amp;w=384&amp;q=100 2x"
                 src="https://dsh6y5eym1jrl.cloudfront.net/_next/image?url=https%3A%2F%2Fd166chel5lrjm5.cloudfront.net%2Fimages%2Fdetailed%2F111%2Fsamaria-9109e-1.jpg&amp;w=384&amp;q=100"
                 style={{ color: 'transparent' }}
               />

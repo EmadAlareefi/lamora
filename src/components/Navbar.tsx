@@ -5,7 +5,7 @@ import ShoppingBag from "./ShoppingBag/ShoppingBag";
 import Menu from "./Menu";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-
+import Image from "next/image";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -52,7 +52,7 @@ export default function Navbar() {
         {/* Logo - Always Centered */}
         <div className="absolute left-1/2 transform -translate-x-1/2 text-lg font-semibold">
           <Link href="/">
-            <img src="/logo.svg" alt="Logo" className="w-28 h-auto" />{" "}
+            <Image src="/logo.svg" alt="Logo" className="w-28 h-auto" />{" "}
             {/* Adjust size as needed */}
           </Link>
         </div>
