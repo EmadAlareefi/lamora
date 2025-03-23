@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 interface MenuProps {
   onClose: () => void; // Type for the onClose function
@@ -6,9 +6,26 @@ interface MenuProps {
 }
 
 const Menu: React.FC<MenuProps> = ({ onClose, isOpen }) => {
+  const menuRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen, onClose]);
   return (
     <>
       <section
+        ref={menuRef}
         className={`pointer-events-auto duration-500 z-[200] fixed top-0 left-0 h-full w-full bg-pinkPale overflow-scroll no-scrollbar flex lg:hidden flex-col transition-opacity ${
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
@@ -92,19 +109,21 @@ const Menu: React.FC<MenuProps> = ({ onClose, isOpen }) => {
           </div>
         </div>
       </section>
-      <div className={
-        `z-30 w-full h-full fixed top-0 left-0 hidden lg:flex justify-start duration-500 transition-all bg-black/50
-        ${
-          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }
-        `}>
+      <div
+        className={`z-30 w-full h-full fixed top-0 left-0 hidden lg:flex justify-start duration-500 transition-all bg-black/50
+        ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}
+        `}
+      >
         <section className="h-full flex flex-row overflow-hidden relative bg-pinkPale">
           {/* Left Side Menu */}
           <div className="min-w-[303px] h-full flex flex-col justify-between border-r-[1px] text-wine border-wine">
             <div className="pt-[92px] pb-[30px] pr-[30px] overflow-y-scroll no-scrollbar h-full relative scroll">
               {/* Close Button */}
               <div className="bg-pinkPale border-wine z-10 fixed top-0 right-0 pt-[30px] pb-[20px] w-[303px] max-w-[303px] pr-[30px] border-r-[1px]">
-                <p onClick={onClose} className="font-gotham-medium leading-[9.57px] uppercase hover:underline underline-offset-4 custom-underline cursor-pointer">
+                <p
+                  onClick={onClose}
+                  className="font-gotham-medium leading-[9.57px] uppercase hover:underline underline-offset-4 custom-underline cursor-pointer"
+                >
                   إغلاق
                 </p>
               </div>
